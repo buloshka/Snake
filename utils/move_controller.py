@@ -15,6 +15,8 @@ class MoveController:
         keyboard.on_press_key("d", lambda _: self.__update_last_pressed(Move.RIGHT))
 
     def __update_last_pressed(self, move: Move) -> None:
+        if move == Move.opposite_direction(self.last_pressed):
+            return 
         self.__last_pressed = move
 
     @property

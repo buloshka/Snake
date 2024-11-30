@@ -21,6 +21,17 @@ class Move(Enum):
     LEFT = (-1, 0)
     RIGHT = (1, 0)
 
+    @staticmethod
+    def opposite_direction(other: 'Move') -> 'Move':
+        if not isinstance(other, Move):
+            return TypeError
+        return {
+            Move.UP: Move.DOWN,
+            Move.DOWN: Move.UP,
+            Move.LEFT: Move.RIGHT,
+            Move.RIGHT: Move.LEFT,
+        }.get(other)
+
 
 FRAMES = 2
 TICK = 1 / FRAMES

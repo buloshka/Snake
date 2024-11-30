@@ -6,12 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="46c477f5-7047-461a-8d52-623c9531d568" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boards/body.py" beforeDir="false" afterPath="$PROJECT_DIR$/boards/body.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/boards/food.py" beforeDir="false" afterPath="$PROJECT_DIR$/boards/food.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/start_game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/connector.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/connector.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/constants.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/move_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/move_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/statistics.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/game_statistics.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

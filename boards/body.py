@@ -106,11 +106,12 @@ class SnakeBody:
                 part_x, part_y = part.current_position
                 to_position = self.check_x_y(part_x + step.value[0], part_y + step.value[-1])
                 if to_position == part.previous_position:
-                    return
+                    return self.do_step(Move.opposite_direction(step))
                 part.do_step(to_position)
                 continue
             previous_part = self.__body[i - 1]
             part.do_step(previous_part.previous_position)
+        return
 
     def __repr__(self) -> str:
         return f'SnakeBody([{", ".join(f"{body.title}{body.current_position}" for body in self.__body)}])'
