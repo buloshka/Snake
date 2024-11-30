@@ -1,6 +1,5 @@
-from statistics import Item
+from utils.game_statistics import Item
 from enum import StrEnum, Enum
-from typing import Self
 
 
 class Cells(StrEnum):
@@ -23,7 +22,7 @@ class Move(Enum):
     RIGHT = (1, 0)
 
 
-FRAMES = 2.5
+FRAMES = 2
 TICK = 1 / FRAMES
 
 FOOD_COUNT = 3

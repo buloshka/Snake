@@ -1,11 +1,11 @@
 from boards.board import Board
-from statistics import Statistic, Item
+from utils.game_statistics import Statistic, Item
 from boards.body import SnakeBody
-from move_controller import MoveController
+from utils.move_controller import MoveController
 from boards.food import Berry
 from time import perf_counter
-from constants import Cells
-from constants import (FOOD_COUNT, REWARDS, FOOD_BONUS,
+from utils.constants import Cells
+from utils.constants import (FOOD_COUNT, REWARDS, FOOD_BONUS,
                        WIDTH, HEIGHT,
                        START_Y, START_X,
                        LOOSE_TEXT, WIN_TEXT)
@@ -39,7 +39,7 @@ class Game:
         minutes: int = int((perf_counter() - self.__start) // 60)
         seconds: int = int((perf_counter() - self.__start) - minutes * 60)
         message = {
-            'Время прохождения': f'  минуты - {minutes}\n{" " * 22}секунды - {seconds}',
+            'Время прохождения': f'  минуты - {minutes}\n{" " * 21}секунды - {seconds}',
             'Кол-во ягод на доске': f'{FOOD_COUNT}',
             'Съедено ягод': f'{self.__stats.items[0].current_value}',
         }
@@ -95,13 +95,15 @@ class Game:
     def __snake_on_food(self) -> None:
         head = self.__snake.head.current_position
         for berry in self.__food:
-            if berry.position == head:
-                rewards = self.__stats.items[0]
-                if rewards.in_min_max and not rewards.is_higher_or_equal_than_max or rewards.current_value == rewards.min_value:
-                    rewards.current_value += FOOD_BONUS
-                berry.put_berry_on_board()
-                self.__snake.add_part()
-                return True
+            if berry.position != head:
+                continue
+            rewards = self.__stats.items[0]
+            if rewards.in_min_max and not rewards.is_higher_or_equal_than_max or rewards.current_value == rewards.min_value:
+                rewards.current_value += FOOD_BONUS
+            bodies = [body.previous_position for body in self.__snake.body]
+            berry.put_berry_on_board(bodies)
+            self.__snake.add_part()
+            return True
         return False
 
     def __snake_touch_snake(self) -> bool:

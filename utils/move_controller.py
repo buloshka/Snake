@@ -1,5 +1,5 @@
 import keyboard
-from constants import Move, TICK
+from utils.constants import Move, TICK
 from time import sleep
 
 
